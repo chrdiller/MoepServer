@@ -13,11 +13,13 @@ public class Netz
     private Server server;
 
     private ServerListener listener;
+    private ServerBroadcast broadcast;
 
     public Netz(Server _server, int port)
     {
         server = _server;
         listenerStarten(port);
+        broadcastStarten();
     }
     
     /**
@@ -43,5 +45,10 @@ public class Netz
      */
     protected void loginEvent(Verbindung verbindung, String name) {
         server.spielerHinzufuegen(new Spieler(verbindung, name, verbindung.gibIP()));
+    }
+
+    private void broadcastStarten() {
+        broadcast = new ServerBroadcast();
+        broadcast.start();
     }
 }
