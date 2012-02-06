@@ -154,7 +154,7 @@ public class Server
     public void spielerEntfernen(Spieler entf)
     {
         for (int i = 0; i < 4; i++) {
-            if (spieler[i].spielername.equals(entf.spielername)) {
+            if (spieler[i].spielername == entf.spielername) {
                 spieler[i] = null;
                 spielerzahl--;
             }
